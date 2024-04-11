@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E46946612BC78A6700C41566 /* RSS_NotifierApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46946602BC78A6700C41566 /* RSS_NotifierApp.swift */; };
 		E46946632BC78A6700C41566 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46946622BC78A6700C41566 /* ContentView.swift */; };
 		E46946652BC78A6800C41566 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E46946642BC78A6800C41566 /* Assets.xcassets */; };
 		E46946682BC78A6800C41566 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E46946672BC78A6800C41566 /* Preview Assets.xcassets */; };
@@ -15,7 +14,6 @@
 
 /* Begin PBXFileReference section */
 		E469465D2BC78A6700C41566 /* RSS Notifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RSS Notifier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E46946602BC78A6700C41566 /* RSS_NotifierApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSS_NotifierApp.swift; sourceTree = "<group>"; };
 		E46946622BC78A6700C41566 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E46946642BC78A6800C41566 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E46946672BC78A6800C41566 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -52,7 +50,6 @@
 		E469465F2BC78A6700C41566 /* RSS Notifier */ = {
 			isa = PBXGroup;
 			children = (
-				E46946602BC78A6700C41566 /* RSS_NotifierApp.swift */,
 				E46946622BC78A6700C41566 /* ContentView.swift */,
 				E46946642BC78A6800C41566 /* Assets.xcassets */,
 				E46946692BC78A6800C41566 /* RSS_Notifier.entitlements */,
@@ -140,7 +137,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E46946632BC78A6700C41566 /* ContentView.swift in Sources */,
-				E46946612BC78A6700C41566 /* RSS_NotifierApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
