@@ -83,7 +83,7 @@ struct SettingsView: View {
     private func removeSelectedURLs() {
       guard !multiSelection.isEmpty else { return }
       
-      var currentUrls = self.sources.filter { !multiSelection.contains($0.url.absoluteString) }
+      let currentUrls = self.sources.filter { !multiSelection.contains($0.url.absoluteString) }
       
       self.urlsString = currentUrls.map { $0.url.absoluteString }.joined(separator: ",")
       multiSelection = []
