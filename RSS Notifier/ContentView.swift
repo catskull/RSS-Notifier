@@ -92,6 +92,7 @@ struct SettingsView: View {
         
         Spacer() // Pushes the content to the top
       }
+      .frame(minWidth: 600, minHeight: 400) // Example sizes
       .padding()
     }
 
@@ -129,8 +130,23 @@ struct SettingsView: View {
         )
         .padding(.horizontal, 20)
         List(sources, selection: $multiSelection) { source in
-          Text(source.url.absoluteString)
-            .background(multiSelection.contains(source.id) == true ? Color.accentColor.opacity(0.3) : Color.clear)
+          HStack {
+            // Using AsyncImage to load the favicon
+            if let host = source.url.host {
+              AsyncImage(url: URL(string: FavIcon(host)[FavIcon.Size.m])) { image in
+                image
+                  .resizable()
+                  .scaledToFit()
+                  .frame(width: 12, height: 12) // Set the size of the favicon
+              } placeholder: {
+                ProgressView() // Show a progress indicator while loading
+                  .frame(width: 12, height: 12)
+              }
+            }
+            Text(source.url.absoluteString)
+              .lineLimit(1) // Ensures the text does not wrap
+          }
+          .background(multiSelection.contains(source.id) ? Color.accentColor.opacity(0.3) : Color.clear)
         }
         .overlay(
           Rectangle().stroke(Color.gray.opacity(0.2), lineWidth: 1)
