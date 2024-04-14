@@ -166,18 +166,15 @@ struct SettingsView: View {
           ).stroke(Color.gray.opacity(0.2), lineWidth: 1)
         )
         .padding(.horizontal, 20)
-//        Text("\(multiSelection.count) selections")
         .sheet(isPresented: $isAddingURL, content: { urlSheet() })
-        .alert(isPresented: $isShowingConfirmation) {
-          Alert(
-            title: Text("Confirm Deletion"),
-            message: Text("Delete \(multiSelection.count) URLs?"),
-            primaryButton: .destructive(Text("Delete")) {
-              removeSelectedURLs()
-            },
-            secondaryButton: .cancel()
-          )
-        }
+        .confirmationDialog("Confirm Deletion", isPresented: $isShowingConfirmation) {
+          Button("Delete", role: .destructive) {
+            removeSelectedURLs()
+          }
+          Button("Cancel", role: .cancel) {}
+        } message: {
+          Text("Delete \(multiSelection.count) URLs?")
+        } .dialogIcon(Image(systemName: "trash"))
       }
       .padding(.vertical, 10)
     }
