@@ -1,5 +1,6 @@
 import SwiftUI
 import AppKit
+import UserNotifications
 
 struct SettingsView: View {
   private enum Tabs: Hashable {
@@ -152,6 +153,13 @@ struct SettingsView: View {
           Rectangle().stroke(Color.gray.opacity(0.2), lineWidth: 1)
         )
         .padding(.horizontal, 20)
+        Button("Send Test Notification") {
+          NotificationManager.shared.sendNotification()
+        }
+        .padding()
+        .foregroundColor(.white)
+        .background(Color.blue)
+        .cornerRadius(10)
         HStack(spacing: 0) {
           Button(action: {isAddingURL = true}) {
             Image(systemName: "plus")
@@ -221,6 +229,8 @@ struct SettingsView: View {
 
 @main
 struct RSSNotifierApp: App {
+  @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+  
   @Environment(\.openWindow) private var openWindow
   @State var currentNumber: String = "1"
   
@@ -236,11 +246,8 @@ struct RSSNotifierApp: App {
       Divider()
       
       Button("Quit") {
-        
         NSApplication.shared.terminate(nil)
-        
       }.keyboardShortcut("q")
-      
     }
   }
 }

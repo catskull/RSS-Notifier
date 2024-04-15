@@ -11,6 +11,8 @@
 		E46946652BC78A6800C41566 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E46946642BC78A6800C41566 /* Assets.xcassets */; };
 		E46946682BC78A6800C41566 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E46946672BC78A6800C41566 /* Preview Assets.xcassets */; };
 		E4AABED92BCC8B2E004D511D /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AABED82BCC8B2E004D511D /* FeedManager.swift */; };
+		E4AABEDB2BCCC2B8004D511D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AABEDA2BCCC2B8004D511D /* NotificationManager.swift */; };
+		E4AABEDD2BCDAC94004D511D /* AppDeligate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AABEDC2BCDAC94004D511D /* AppDeligate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		E46946672BC78A6800C41566 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E46946692BC78A6800C41566 /* RSS_Notifier.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RSS_Notifier.entitlements; sourceTree = "<group>"; };
 		E4AABED82BCC8B2E004D511D /* FeedManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
+		E4AABEDA2BCCC2B8004D511D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		E4AABEDC2BCDAC94004D511D /* AppDeligate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDeligate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +58,11 @@
 			children = (
 				E4AABED82BCC8B2E004D511D /* FeedManager.swift */,
 				E46946622BC78A6700C41566 /* ContentView.swift */,
+				E4AABEDC2BCDAC94004D511D /* AppDeligate.swift */,
 				E46946642BC78A6800C41566 /* Assets.xcassets */,
 				E46946692BC78A6800C41566 /* RSS_Notifier.entitlements */,
 				E46946662BC78A6800C41566 /* Preview Content */,
+				E4AABEDA2BCCC2B8004D511D /* NotificationManager.swift */,
 			);
 			path = "RSS Notifier";
 			sourceTree = "<group>";
@@ -139,6 +145,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4AABEDD2BCDAC94004D511D /* AppDeligate.swift in Sources */,
+				E4AABEDB2BCCC2B8004D511D /* NotificationManager.swift in Sources */,
 				E46946632BC78A6700C41566 /* ContentView.swift in Sources */,
 				E4AABED92BCC8B2E004D511D /* FeedManager.swift in Sources */,
 			);
