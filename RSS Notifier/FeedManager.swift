@@ -58,10 +58,5 @@ class FeedManager {
     }
   }
   
-//  func parseFeed() -> [FeedItem]? {
-//    guard let data = data else { return nil }
-//    // Implement parsing logic here, depending on the format of the feed
-//    return []
-//  }
 }
 

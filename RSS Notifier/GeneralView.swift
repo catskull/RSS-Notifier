@@ -1,7 +1,8 @@
 import SwiftUI
+import FeedKit
 
 struct GeneralView: View {
-  @AppStorage("URLs") private var urlsString = "https://catskull.net/feed.xml"
+  @AppStorage("URLs") private var urlsJsonString: String = "[{\"url\":\"https://catskull.net/feed.xml\"}]"
   @State private var isAddingURL = false
   @State private var isShowingConfirmation = false
   @State private var newURLString = ""
@@ -9,9 +10,38 @@ struct GeneralView: View {
   @State private var currentURLs: Set<Source>? = Set()
   
   private var sources: [Source] {
-    urlsString.split(separator: ",").compactMap { substring in
-      Source(url: String(substring))
+    decodeSources()
+  }
+  
+  private func decodeSources() -> [Source] {
+    guard let data = urlsJsonString.data(using: .utf8) else {
+      return []
     }
+    return (try? JSONDecoder().decode([Source].self, from: data)) ?? []
+  }
+  
+  private func encodeSources(_ sources: [Source]) {
+    let data = try? JSONEncoder().encode(sources)
+    urlsJsonString = data.flatMap { String(data: $0, encoding: .utf8) } ?? ""
+  }
+  
+  private func addNewSource() {
+    guard let newSource = Source(url: newURLString) else {
+      print("Invalid URL")
+      return
+    }
+    var updatedSources = decodeSources()
+    updatedSources.append(newSource)
+    encodeSources(updatedSources)
+    print(urlsJsonString)
+    newURLString = ""
+    isAddingURL = false
+  }
+  
+  private func removeSelectedURLs() {
+    let updatedSources = decodeSources().filter { !multiSelection.contains($0.id) }
+    encodeSources(updatedSources)
+    multiSelection = []
   }
   
   private func urlSheet() -> some View {
@@ -26,34 +56,18 @@ struct GeneralView: View {
         .textContentType(.URL)
         .disableAutocorrection(true)
       
+      FeedView(urlString: newURLString)
+      
       Button("Add") {
-        if let url = URL(string: newURLString),
-           let newSource = Source(url: url.absoluteString) {
-          var currentUrls = self.sources
-          currentUrls.append(newSource)
-          
-          // Convert each URL to a string and then join them into a single string
-          self.urlsString = currentUrls.map { $0.url.absoluteString }.joined(separator: ",")
-          newURLString = "" // Clear the text field after adding
-          isAddingURL = false
-        }
+        addNewSource()
       }
-      .disabled(!(Source(url: newURLString)?.valid ?? false))
+      .disabled(false)
       .padding()
       
       Spacer() // Pushes the content to the top
     }
     .frame(minWidth: 600, minHeight: 400) // Example sizes
     .padding()
-  }
-  
-  private func removeSelectedURLs() {
-    guard !multiSelection.isEmpty else { return }
-    
-    let currentUrls = self.sources.filter { !multiSelection.contains($0.url.absoluteString) }
-    
-    self.urlsString = currentUrls.map { $0.url.absoluteString }.joined(separator: ",")
-    multiSelection = []
   }
   
   var body: some View {
@@ -103,13 +117,6 @@ struct GeneralView: View {
         Rectangle().stroke(Color.gray.opacity(0.2), lineWidth: 1)
       )
       .padding(.horizontal, 20)
-      Button("Send Test Notification") {
-        NotificationManager.shared.sendNotification()
-      }
-      .padding()
-      .foregroundColor(.white)
-      .background(Color.blue)
-      .cornerRadius(10)
       HStack(spacing: 0) {
         Button(action: {isAddingURL = true}) {
           Image(systemName: "plus")
@@ -121,7 +128,7 @@ struct GeneralView: View {
           .padding(.horizontal, 5)
         Button(action: {
           if multiSelection.count > 1 {
-            isShowingConfirmation = true  // Assuming isShowingConfirmation is a @State variable
+            isShowingConfirmation = true
           } else {
             removeSelectedURLs()
           }
