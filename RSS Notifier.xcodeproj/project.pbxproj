@@ -7,23 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E46946632BC78A6700C41566 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46946622BC78A6700C41566 /* ContentView.swift */; };
 		E46946652BC78A6800C41566 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E46946642BC78A6800C41566 /* Assets.xcassets */; };
 		E46946682BC78A6800C41566 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E46946672BC78A6800C41566 /* Preview Assets.xcassets */; };
 		E4AABED92BCC8B2E004D511D /* FeedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AABED82BCC8B2E004D511D /* FeedManager.swift */; };
 		E4AABEDB2BCCC2B8004D511D /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AABEDA2BCCC2B8004D511D /* NotificationManager.swift */; };
 		E4AABEDD2BCDAC94004D511D /* AppDeligate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AABEDC2BCDAC94004D511D /* AppDeligate.swift */; };
+		E4D9BA912BCDC05100091B05 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = E4D9BA902BCDC05100091B05 /* FeedKit */; };
+		E4D9BA932BCDC1A500091B05 /* RssNotifierApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D9BA922BCDC1A500091B05 /* RssNotifierApp.swift */; };
+		E4D9BA952BCDC1BB00091B05 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D9BA942BCDC1BB00091B05 /* SettingsView.swift */; };
+		E4D9BA972BCDC1CB00091B05 /* GeneralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D9BA962BCDC1CB00091B05 /* GeneralView.swift */; };
+		E4D9BA992BCDC1D800091B05 /* AdvancedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D9BA982BCDC1D800091B05 /* AdvancedView.swift */; };
+		E4D9BA9B2BCDC22100091B05 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D9BA9A2BCDC22100091B05 /* Source.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E469465D2BC78A6700C41566 /* RSS Notifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RSS Notifier.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E46946622BC78A6700C41566 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E46946642BC78A6800C41566 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E46946672BC78A6800C41566 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E46946692BC78A6800C41566 /* RSS_Notifier.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RSS_Notifier.entitlements; sourceTree = "<group>"; };
 		E4AABED82BCC8B2E004D511D /* FeedManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedManager.swift; sourceTree = "<group>"; };
 		E4AABEDA2BCCC2B8004D511D /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		E4AABEDC2BCDAC94004D511D /* AppDeligate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDeligate.swift; sourceTree = "<group>"; };
+		E4D9BA922BCDC1A500091B05 /* RssNotifierApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RssNotifierApp.swift; sourceTree = "<group>"; };
+		E4D9BA942BCDC1BB00091B05 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E4D9BA962BCDC1CB00091B05 /* GeneralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralView.swift; sourceTree = "<group>"; };
+		E4D9BA982BCDC1D800091B05 /* AdvancedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedView.swift; sourceTree = "<group>"; };
+		E4D9BA9A2BCDC22100091B05 /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4D9BA912BCDC05100091B05 /* FeedKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,12 +67,16 @@
 			isa = PBXGroup;
 			children = (
 				E4AABED82BCC8B2E004D511D /* FeedManager.swift */,
-				E46946622BC78A6700C41566 /* ContentView.swift */,
+				E4D9BA922BCDC1A500091B05 /* RssNotifierApp.swift */,
+				E4D9BA942BCDC1BB00091B05 /* SettingsView.swift */,
 				E4AABEDC2BCDAC94004D511D /* AppDeligate.swift */,
 				E46946642BC78A6800C41566 /* Assets.xcassets */,
 				E46946692BC78A6800C41566 /* RSS_Notifier.entitlements */,
 				E46946662BC78A6800C41566 /* Preview Content */,
 				E4AABEDA2BCCC2B8004D511D /* NotificationManager.swift */,
+				E4D9BA962BCDC1CB00091B05 /* GeneralView.swift */,
+				E4D9BA9A2BCDC22100091B05 /* Source.swift */,
+				E4D9BA982BCDC1D800091B05 /* AdvancedView.swift */,
 			);
 			path = "RSS Notifier";
 			sourceTree = "<group>";
@@ -91,6 +105,9 @@
 			dependencies = (
 			);
 			name = "RSS Notifier";
+			packageProductDependencies = (
+				E4D9BA902BCDC05100091B05 /* FeedKit */,
+			);
 			productName = "RSS Notifier";
 			productReference = E469465D2BC78A6700C41566 /* RSS Notifier.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +136,9 @@
 				Base,
 			);
 			mainGroup = E46946542BC78A6700C41566;
+			packageReferences = (
+				E4D9BA8F2BCDC05100091B05 /* XCRemoteSwiftPackageReference "FeedKit" */,
+			);
 			productRefGroup = E469465E2BC78A6700C41566 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -145,9 +165,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4D9BA972BCDC1CB00091B05 /* GeneralView.swift in Sources */,
 				E4AABEDD2BCDAC94004D511D /* AppDeligate.swift in Sources */,
+				E4D9BA932BCDC1A500091B05 /* RssNotifierApp.swift in Sources */,
 				E4AABEDB2BCCC2B8004D511D /* NotificationManager.swift in Sources */,
-				E46946632BC78A6700C41566 /* ContentView.swift in Sources */,
+				E4D9BA952BCDC1BB00091B05 /* SettingsView.swift in Sources */,
+				E4D9BA9B2BCDC22100091B05 /* Source.swift in Sources */,
+				E4D9BA992BCDC1D800091B05 /* AdvancedView.swift in Sources */,
 				E4AABED92BCC8B2E004D511D /* FeedManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +373,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E4D9BA8F2BCDC05100091B05 /* XCRemoteSwiftPackageReference "FeedKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nmdias/FeedKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E4D9BA902BCDC05100091B05 /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E4D9BA8F2BCDC05100091B05 /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = FeedKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E46946552BC78A6700C41566 /* Project object */;
 }
