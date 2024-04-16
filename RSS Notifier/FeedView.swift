@@ -7,25 +7,33 @@
 
 import SwiftUI
 import FeedKit
+import UserNotifications
 
 struct FeedView: View {
   var urlString: String
   @State private var feedTitle: String = "Loading feed..."
-  @State private var feedType: String = ""
-  @State private var feedSummary: String = ""
+  @State private var feedItemTitle: String = ""
+  @State private var validFeed: Bool = false
   
   var body: some View {
     VStack {
       Text(feedTitle).padding()
-      Text(feedType).padding()
+      Text(feedItemTitle).padding()
     }
     .onChange(of: urlString) { _, _ in
       loadFeed()
     }
+    .onAppear() {
+      loadFeed()
+    }
+    Button("Send Test Notification") {
+      NotificationManager.shared.sendNotification(title: feedTitle, subtitle: feedItemTitle)
+    }
+    .padding()
+    .disabled(!validFeed)
   }
   
   func loadFeed() {
-    print(urlString)
     guard let url = URL(string: urlString) else {
       feedTitle = "Invalid URL"
       return
@@ -44,18 +52,35 @@ struct FeedView: View {
   }
   
   func updateUI(with feed: Feed) {
+    validFeed = true
     switch feed {
     case .atom(let atomFeed):
       let item = atomFeed.entries?.first
-      feedType = item?.id ?? "No ID"
-      feedTitle = item?.title ?? "No Title"
+      feedTitle = decodeHTMLEntities(htmlEncodedString: atomFeed.title ?? "None")
+      feedItemTitle = decodeHTMLEntities(htmlEncodedString: item?.title ?? "No Title")
     case .rss(let rssFeed):
       let item = rssFeed.items?.first
-      feedType = item?.guid?.value ?? "No ID"
-      feedTitle = item?.title ?? "No Title"
-    case .json(let jsonFeed):
-      feedType = "JSON"
-      feedTitle = jsonFeed.title ?? "No Title"
+      feedTitle = decodeHTMLEntities(htmlEncodedString: rssFeed.title ?? "None")
+      feedItemTitle = decodeHTMLEntities(htmlEncodedString: item?.title ?? "No Title")
+    case .json:
+      validFeed = false
+      feedItemTitle = "WTF is a JSON feed?"
     }
+  }
+  
+  func decodeHTMLEntities(htmlEncodedString: String) -> String {
+    let entities = [
+      ("&amp;", "&"),
+      ("&lt;", "<"),
+      ("&gt;", ">"),
+      ("&quot;", "\""),
+      ("&apos;", "'"),
+      ("&#39;", "'")
+    ]
+    var decodedString = htmlEncodedString
+    for (encoded, decoded) in entities {
+      decodedString = decodedString.replacingOccurrences(of: encoded, with: decoded)
+    }
+    return decodedString
   }
 }

@@ -5,7 +5,7 @@ struct GeneralView: View {
   @AppStorage("URLs") private var urlsJsonString: String = "[{\"url\":\"https://catskull.net/feed.xml\"}]"
   @State private var isAddingURL = false
   @State private var isShowingConfirmation = false
-  @State private var newURLString = ""
+  @State private var newURLString = "https://catskull.net/feed.xml"
   @State private var multiSelection = Set<String>()
   @State private var currentURLs: Set<Source>? = Set()
   
@@ -34,7 +34,7 @@ struct GeneralView: View {
     updatedSources.append(newSource)
     encodeSources(updatedSources)
     print(urlsJsonString)
-    newURLString = ""
+//    newURLString = ""
     isAddingURL = false
   }
   

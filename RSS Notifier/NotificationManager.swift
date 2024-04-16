@@ -23,12 +23,11 @@ class NotificationManager {
     }
   }
   
-  func sendNotification() {
-    // Create the content of the notification
+  func sendNotification(title: String = "Default Title", subtitle: String = "Default subtitle.", shouldPlaySound: Bool = false) {
     let content = UNMutableNotificationContent()
-    content.title = "Test Notifiwqrwerwcation"
-    content.subtitle = "This is a test notification from SwiftUI."
-    content.sound = UNNotificationSound.default
+    content.title = title
+    content.subtitle = subtitle
+    content.sound = shouldPlaySound ? UNNotificationSound.default : nil
     
     // Create the trigger for the notification
     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
